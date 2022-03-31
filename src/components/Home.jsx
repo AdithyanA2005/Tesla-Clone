@@ -51,7 +51,7 @@ function Home() {
         <Section
           title="Accessories"
           description=""
-          backgroundImg="solar-roof.jpg"
+          backgroundImg="accessories.jpg"
           leftBtnText="Order now"
         />
       </Container>
