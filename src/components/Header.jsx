@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
+import { useSelector } from 'react-redux'
+import { selectCars } from '../features/car/carSlice'
 
 function Header() {
   const [sidebarStatus, setSidebarStatus] = useState(false);
+  const cars = useSelector(selectCars)
 
   return (
     <Container>
       <Logo href="/"><img src="/images/logo.svg" alt="Tesla-Logo" /></Logo>
       <Menu>
-        <MenuItem href="#">Model S</MenuItem>
-        <MenuItem href="#">Model 3</MenuItem>
-        <MenuItem href="#">Model X</MenuItem>
-        <MenuItem href="#">Model Y</MenuItem>
-        <MenuItem href="#">Solar Roof</MenuItem>
-        <MenuItem href="#">Solar Panels</MenuItem>
+        {cars && cars.map((car, index) => (
+          <MenuItem key={index} href="#">{car}</MenuItem>
+        ))}
       </Menu>
       <RightMenu>
         <MenuItem href="#">Shop</MenuItem>
@@ -25,14 +25,15 @@ function Header() {
         <CloseWrap>
           <CloseButton onClick={() => setSidebarStatus(false)}/>
         </CloseWrap>
+
+        {cars && cars.map((car, index) => (
+          <SidebarItem key={index}><a href="#">{car}</a></SidebarItem>
+        ))}
         <SidebarItem><a href="#">Existing Inventory</a></SidebarItem>
         <SidebarItem><a href="#">Used Inventory</a></SidebarItem>
         <SidebarItem><a href="#">Trade-in</a></SidebarItem>
         <SidebarItem><a href="#">Cybertruck</a></SidebarItem>
         <SidebarItem><a href="#">Roadaster</a></SidebarItem>
-        <SidebarItem><a href="#"></a>Test items</SidebarItem>
-        <SidebarItem><a href="#"></a>Test items</SidebarItem>
-        <SidebarItem><a href="#"></a>Test items</SidebarItem>
       </Sidebar>
     </Container>
   )
@@ -65,7 +66,7 @@ const Menu = styled.div`
   flex: 1;
   justify-content: center;
 
-  @media(max-width: 1280px) {
+  @media(max-width: 1030px) {
     display: none;
   }
 `
