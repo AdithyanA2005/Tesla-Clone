@@ -88,6 +88,7 @@ const Sidebar = styled.div`
   right: 0;
   top: 0;
   transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+  transition: transform 0.2s;
   width: 300px;
   z-index: 10;
 `
