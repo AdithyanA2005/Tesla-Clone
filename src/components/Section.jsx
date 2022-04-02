@@ -6,10 +6,10 @@ function Section(props) {
   return (
     <Wrap bgImg={props.backgroundImg}>
       <Fade bottom>
-        <Header>
-          <h1>{props.title}</h1>
-          <p>{props.description}</p>
-        </Header>
+          <Header>
+            <h1>{props.title}</h1>
+            <p>{props.description}</p>
+          </Header>
       </Fade>
 
       <Actions>
@@ -19,7 +19,9 @@ function Section(props) {
             {props.rightBtnText && <RightBtn>{props.rightBtnText}</RightBtn>}
           </BtnGroup>
         </Fade>
-        <DownArrow src="/images/down-arrow.svg" />
+        <DownArrowContainer>
+          {props.downArrow && <DownArrow src="/images/down-arrow.svg"></DownArrow>}
+        </DownArrowContainer>
       </Actions>
     </Wrap>
   )
@@ -34,19 +36,22 @@ const Wrap = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    font-size: 1.2rem;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     width: 100%;
     max-width: 100vw;
     max-height: 100vh;
-    
+    scroll-snap-align: start;
 `
 const Header = styled.div`
   padding-top: 15vh;
   text-align: center;
 `
 const Actions = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 const BtnGroup = styled.div`
   display: flex;
@@ -63,7 +68,7 @@ const LeftBtn = styled.div`
   color: white;
   cursor: pointer;
   display: flex;
-  font-size: 12px;
+  font-size: 13px;
   height: 40px;
   justify-content: center;
   margin: 8px;
@@ -76,8 +81,14 @@ const RightBtn = styled(LeftBtn)`
   color: black;
   opacity: 0.65;
 `
-const DownArrow = styled.img`
-  animation: animateDown infinite 1.5s;
+const DownArrowContainer = styled.div`
   height: 40px;
   margin-top: 20px;
+  text-align: center;
+`
+const DownArrow = styled.img`
+  animation: animateDown infinite 1.5s;
+  background-color: transparent;
+  border: 0;
+  height: inherit;
 `

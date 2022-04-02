@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 * {
     box-sizing: border-box;
     color: #393c41;
-    font-family: "Gotham Ssm", "sans-serif";
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
 }

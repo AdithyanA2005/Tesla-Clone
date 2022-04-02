@@ -3,10 +3,14 @@ import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
 import { useSelector } from 'react-redux'
 import { selectCars } from '../features/car/carSlice'
+import { selectOptions } from '../features/options/optionSlice'
+import { selectSolar } from '../features/solar/solarSlice'
 
 function Header() {
   const [sidebarStatus, setSidebarStatus] = useState(false);
   const cars = useSelector(selectCars)
+  const solars = useSelector(selectSolar)
+  const options = useSelector(selectOptions)
 
   return (
     <Container>
@@ -15,25 +19,33 @@ function Header() {
         {cars && cars.map((car, index) => (
           <MenuItem key={index} href="#">{car}</MenuItem>
         ))}
+        {solars && solars.map((solar, index) => (
+          <MenuItem key={index} href="#">{solar}</MenuItem>
+        ))}
       </Menu>
       <RightMenu>
-        <MenuItem href="#">Shop</MenuItem>
-        <MenuItem href="#">Account</MenuItem> 
-        <MenuItem href="#" onClick={() => setSidebarStatus(true)}>Menu</MenuItem>
+        {options && options.map((option, index) => (
+          <MenuItem key={index} href="#">{option}</MenuItem>
+        ))}
+        <MenuItemBurger href="#" onClick={() => setSidebarStatus(true)}>Menu</MenuItemBurger>
       </RightMenu>
       <Sidebar show={sidebarStatus}>
         <CloseWrap>
           <CloseButton onClick={() => setSidebarStatus(false)}/>
         </CloseWrap>
-
         {cars && cars.map((car, index) => (
           <SidebarItem key={index}><a href="#">{car}</a></SidebarItem>
         ))}
+        {solars && solars.map((solar, index) => (
+          <SidebarItem key={index} href="#">{solar}</SidebarItem>
+        ))}
         <SidebarItem><a href="#">Existing Inventory</a></SidebarItem>
         <SidebarItem><a href="#">Used Inventory</a></SidebarItem>
-        <SidebarItem><a href="#">Trade-in</a></SidebarItem>
-        <SidebarItem><a href="#">Cybertruck</a></SidebarItem>
         <SidebarItem><a href="#">Roadaster</a></SidebarItem>
+        <SidebarItem><a href="#">Cybertruck</a></SidebarItem>
+        {options && options.map((option, index) => (
+          <SidebarItem key={index} href="#">{option}</SidebarItem>
+        ))}
       </Sidebar>
     </Container>
   )
@@ -55,18 +67,26 @@ const Container = styled.div`
 `
 const Logo = styled.a`
   display: flex;
-  padding-left: 20px;
+  padding-left: 24px;
   align-items: center;
-  min-inline-size: 140px;
-  margin-right: 160px;
+  flex: 1;
+
+  @media(max-width: 600px) {
+    padding-left: 0;
+  }
+
+  img {
+    width: 120px;
+    height: 24px;
+  }
 `
 const Menu = styled.div`
   align-items: center;
   display: flex;
-  flex: 1;
+  flex: 5;
   justify-content: center;
 
-  @media(max-width: 1030px) {
+  @media(max-width: 1200px) {
     display: none;
   }
 `
@@ -74,12 +94,25 @@ const MenuItem = styled.a`
   font-size: 14px;
   font-weight: 600;
   padding: 0 15px;
+
+  @media(max-width: 1200px) {
+    display: none;
+  }
+`
+const MenuItemBurger = styled(MenuItem)`
+  display: flex;
+
+  @media(max-width: 1200px) {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 8px 16px;
+  }
 `
 const RightMenu = styled.div`
   align-items: center;
   display: flex;
   justify-content: end;
-  width: 300px;
+  flex: 1;
 `
 const Sidebar = styled.div`
   background-color: white;
