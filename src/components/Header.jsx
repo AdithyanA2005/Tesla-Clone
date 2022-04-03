@@ -39,10 +39,10 @@ function Header() {
         {solars && solars.map((solar, index) => (
           <SidebarItem key={index} href={`#${solar}`}>{solar}</SidebarItem>
         ))}
-        <SidebarItem><a href="#">Existing Inventory</a></SidebarItem>
-        <SidebarItem><a href="#">Used Inventory</a></SidebarItem>
-        <SidebarItem><a href="#">Roadaster</a></SidebarItem>
-        <SidebarItem><a href="#">Cybertruck</a></SidebarItem>
+        <SidebarItem href="#">Existing Inventory</SidebarItem>
+        <SidebarItem href="#">Used Inventory</SidebarItem>
+        <SidebarItem href="#">Roadaster</SidebarItem>
+        <SidebarItem href="#">Cybertruck</SidebarItem>
         {options && options.map((option, index) => (
           <SidebarItem key={index} href="#">{option}</SidebarItem>
         ))}
@@ -117,6 +117,8 @@ const RightMenu = styled.div`
 const Sidebar = styled.div`
   background-color: white;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   position: fixed;
   right: 0;
@@ -126,12 +128,10 @@ const Sidebar = styled.div`
   width: 300px;
   z-index: 10;
 `
-const SidebarItem = styled.li`
+const SidebarItem = styled.a`
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   font-weight: 600;
-  list-style: none;
   padding: 15px 0;
-  text-align: start;
 `
 const CloseWrap = styled.div`
   display: flex;
