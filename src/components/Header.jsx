@@ -17,10 +17,10 @@ function Header() {
       <Logo href="/"><img src="/images/logo.svg" alt="Tesla-Logo" /></Logo>
       <Menu>
         {cars && cars.map((car, index) => (
-          <MenuItem key={index} href="#">{car}</MenuItem>
+          <MenuItem key={index} href={`#${car}`}>{car}</MenuItem>
         ))}
         {solars && solars.map((solar, index) => (
-          <MenuItem key={index} href="#">{solar}</MenuItem>
+          <MenuItem key={index} href={`#${solar}`}>{solar}</MenuItem>
         ))}
       </Menu>
       <RightMenu>
@@ -34,10 +34,10 @@ function Header() {
           <CloseButton onClick={() => setSidebarStatus(false)}/>
         </CloseWrap>
         {cars && cars.map((car, index) => (
-          <SidebarItem key={index}><a href="#">{car}</a></SidebarItem>
+          <SidebarItem key={index}><a href={`#${car}`}>{car}</a></SidebarItem>
         ))}
         {solars && solars.map((solar, index) => (
-          <SidebarItem key={index} href="#">{solar}</SidebarItem>
+          <SidebarItem key={index} href={`#${solar}`}>{solar}</SidebarItem>
         ))}
         <SidebarItem><a href="#">Existing Inventory</a></SidebarItem>
         <SidebarItem><a href="#">Used Inventory</a></SidebarItem>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 function Section(props) {
   return (
-    <Wrap bgImg={props.backgroundImg}>
+    <Wrap id={props.title} bgImg={props.backgroundImg}>
       <Fade bottom>
           <Header>
             <h1>{props.title}</h1>
