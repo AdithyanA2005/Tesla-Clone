@@ -31,7 +31,7 @@ export default Section
 
 const Wrap = styled.div`
     align-items: center;
-    background-image: ${props => `url("/${props.bgImg}")`};
+    background-image: ${props => `url("${props.bgImg}")`};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
