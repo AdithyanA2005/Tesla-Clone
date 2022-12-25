@@ -5,4 +5,4 @@
 > Screenshots Of the Homepage
 
 ### Live Demo Of The Website
-> https://aditesla.herokuapp.com
+> https://adithyana2005.github.io/Tesla-Clone/
