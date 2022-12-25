@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <Container>
-      <Logo href="/"><img src="/images/logo.svg" alt="Tesla-Logo" /></Logo>
+      <Logo href="/"><img src="images/logo.svg" alt="Tesla-Logo" /></Logo>
       <Menu>
         {cars && cars.map((car, index) => (
           <MenuItem key={index} href={`#${car}`}>{car}</MenuItem>
