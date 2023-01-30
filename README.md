@@ -1,8 +1,5 @@
-# TESLS-HOMEPAGE-CLONE
+# Tesla Landing Page Clone ReactJS
 
 ### This is the replica of the tesla's home page created using react js
 > ![Screenshot of the app](./.github/screenshot.png)
 > Screenshots Of the Homepage
-
-### Live Demo Of The Website
-> https://adithyana2005.github.io/Tesla-Clone/
